@@ -7,9 +7,14 @@ const hoursSpan = clock.querySelector('.horas');
 const minutesSpan = clock.querySelector('.minutos');
 const secondsSpan = clock.querySelector('.segundos');
 
+endDate.addEventListener('change', function(e){
+    e.preventDefault();
+    clearInterval(timeInterval);
+    console.dir(this);
+    const endDate = new Date(this.value);
+});
 
 
 
 
-
-// console.log(endDate.value);
+// console.log(endDate);
