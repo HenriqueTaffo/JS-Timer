@@ -17,7 +17,6 @@ if(savedTime){
 endDate.addEventListener('change', function(e){
     e.preventDefault();
     clearInterval(timeInterval);
-    // console.dir(this);
     const endDateTemp = new Date(this.value);
     localStorage.setItem('countdown',endDateTemp);
     startClock(endDateTemp);
@@ -26,7 +25,6 @@ endDate.addEventListener('change', function(e){
 function startClock(endTime){
     function updateCounter(){
         let t = timeRemaining(endTime);
-        console.log(t);
         daysSpan.innerHTML = t.days;
         hoursSpan.innerHTML = ('0'+t.hours).slice(-2);
         minutesSpan.innerHTML =('0'+t.minutes).slice(-2);
@@ -47,7 +45,3 @@ function timeRemaining(endTime){
     let days = Math.floor((t/(1000*60*60*24)));
     return {'total':t,'days':days,'hours':hours,'minutes':minutes,'seconds':seconds};
 }
-
-
-
-// console.log(endDate);
