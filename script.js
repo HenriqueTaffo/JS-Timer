@@ -1,19 +1,32 @@
 let countDown;
-let interval;
+let timeInterval;
 const endDate = document.querySelector('input[name="endDate"]');
-const clock = document.querySelector('relogio');
-const daysSpan = clock.querySelector('.dias');
-const hoursSpan = clock.querySelector('.horas');
-const minutesSpan = clock.querySelector('.minutos');
-const secondsSpan = clock.querySelector('.segundos');
+const clock = document.querySelector('#clock');
+const daysSpan = clock.querySelector('.days');
+const hoursSpan = clock.querySelector('.hours');
+const minutesSpan = clock.querySelector('.minutes');
+const secondsSpan = clock.querySelector('.seconds');
 
 endDate.addEventListener('change', function(e){
     e.preventDefault();
     clearInterval(timeInterval);
-    console.dir(this);
-    const endDate = new Date(this.value);
+    // console.dir(this);
+    const endDateTemp = new Date(this.value);
+    startClock(endDateTemp);
 });
 
+function startClock(endTime){
+    function updateCounter(){
+        let t = timeRemaining(endTime);
+        console.log(t);
+    }
+    updateCounter();
+    timeInterval = setInterval(updateCounter, 1000);
+}
+
+function timeRemaining(endTime){
+    return 'checked';
+}
 
 
 
